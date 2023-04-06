@@ -1,0 +1,62 @@
+CREATE TABLE celebrities (id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    age INTEGER);
+
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Jennifer", "Aniston", 54);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Adam", "Sandler", 56);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Kevin", "James", 57);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Chris", "Rock", 58);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Salma", "Hayek", 56);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Sandra", "Bullock", 58);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Drew", "Barrymore", 48);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Jennifer", "Lawrence", 32);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Betty", "White", 99);
+INSERT INTO celebrities (first_name, last_name, age)
+    VALUES ("Ryan", "Reynolds", 46);
+    
+CREATE TABLE films (id INTEGER PRIMARY KEY,
+    celebrities_id INTEGER,
+    title TEXT);
+    
+INSERT INTO films (celebrities_id, title)
+    VALUES (1, "Murder Mystery");
+INSERT INTO films (celebrities_id, title)
+    VALUES (2, "Murder Mystery");
+INSERT INTO films (celebrities_id, title)
+    VALUES (1, "Mother's Day");
+INSERT INTO films (celebrities_id, title)
+    VALUES (2, "50 First Dates");
+INSERT INTO films (celebrities_id, title)
+    VALUES (3, "Home Team");
+INSERT INTO films (celebrities_id, title)
+    VALUES (1, "Grown Ups");
+INSERT INTO films (celebrities_id, title)
+    VALUES (3, "Grown Ups");
+INSERT INTO films (celebrities_id, title)
+    VALUES (4, "Madagascar");
+INSERT INTO films (celebrities_id, title)
+    VALUES (5, "Grown Ups");
+INSERT INTO films (celebrities_id, title)
+    VALUES (6, "The Lost City");
+INSERT INTO films (celebrities_id, title)
+    VALUES (7, "50 First Dates");
+INSERT INTO films (celebrities_id, title)
+    VALUES (8, "Hunger Games");
+INSERT INTO films (celebrities_id, title)
+    VALUES (9, "The Proposal");
+INSERT INTO films (celebrities_id, title)
+    VALUES (10, "The Proposal");
+    
+SELECT c.first_name, c.last_name, f.title FROM celebrities AS c
+LEFT OUTER JOIN films AS f
+ON c.id=f.celebrities_id
