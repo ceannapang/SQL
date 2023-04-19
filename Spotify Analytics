@@ -26,8 +26,36 @@ time_signature integer NOT NULL );
 
 #Next, I explored the data using the following SQLs. 
 
-#Calculate the average popularity for the artists in the Spotify data table. 
-#Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+--Which artist had the most songs in the top 50?
+SELECT artist_name, count(artist_name) AS song_count
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY song_count DESC
+LIMIT 2;
+
+--How many songs were longer than 2 minutes and had a popularity greater than 90?
+SELECT count(track_name)
+FROM BIT_DB.Spotifydata
+WHERE duration_ms > 120000 AND popularity>90;
+
+--What was the average danceability for songs with a tempo under 100?
+SELECT AVG(danceability)
+FROM BIT_DB.Spotifydata
+WHERE tempo < 100;
+
+---Which Olivia Rodrigo song had the highest acoustic?
+SELECT track_name
+FROM BIT_DB.Spotifydata
+WHERE artist_name = 'Olivia Rodrigo'
+ORDER BY acousticness DESC
+LIMIT 1;
+
+--How many of each type of song key was used?
+SELECT count(DISTINCT song_key)
+FROM BIT_DB.Spotifydata;
+
+--Calculate the average popularity for the artists in the Spotify data table. 
+--Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
 
 WITH popularity_tempTable AS(
     SELECT s.artist_name, AVG(s.popularity) AS avg_popularity
