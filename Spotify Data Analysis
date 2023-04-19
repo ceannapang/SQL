@@ -1,3 +1,7 @@
+# For this project, I downloaded Spotify data from Kaggle.
+# Then I created a table to insert Spotify data into.
+# Finally, I performed analytics on the data using SQL. 
+
 CREATE TABLE BIT_DB.Spotifydata (
 id integer PRIMARY KEY,
 artist_name varchar NOT NULL,
@@ -18,8 +22,12 @@ tempo decimal(6,3) NOT NULL,
 duration_ms integer NOT NULL,
 time_signature integer NOT NULL );
 
---Calculate the average popularity for the artists in the Spotify data table. 
---Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
+#Then I inserted the Spotify Data .csv into the table.
+
+#Next, I explored the data using the following SQLs. 
+
+#Calculate the average popularity for the artists in the Spotify data table. 
+#Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
 
 WITH popularity_tempTable AS(
     SELECT s.artist_name, AVG(s.popularity) AS avg_popularity
