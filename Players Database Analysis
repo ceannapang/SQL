@@ -1,4 +1,4 @@
-Here I used a Players dataset from Kaggle to determine the minimum and maximum height of players and categorize all players by height.
+Here I used a Players dataset from Kaggle to determine the minimum, maximum and average physical statistics of all players and categorize players by height
 
 /*
 Source:
@@ -105,6 +105,15 @@ SELECT player, AVG(height) FROM players WHERE height > 6 AND weight > 210;
 
 --Select all players with height above 7 feet 1 inch and weight about 230 pounds.
 SELECT * FROM players WHERE height > '7''1' AND weight > 230;
+
+--Determine the player with the heaviest weight.
+SELECT player, MAX(weight) FROM players;
+
+--Determine the player with the lowest weight.
+SELECT player, MIN(weight) FROM players;
+
+--Find the average weight based on all players.
+SELECT AVG(weight) FROM players;
 
 --Determine the player with the maximum height.
 SELECT player, MAX(height) FROM players;
