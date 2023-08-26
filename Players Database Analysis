@@ -1,3 +1,5 @@
+Here I used a Players dataset from Kaggle to determine the minimum and maximum height of players and categorize all players by height.
+
 /*
 Source:
 https://www.kaggle.com/jacobbaruch/nba-player-of-the-week 
@@ -98,16 +100,22 @@ INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('Pascal Siakam','Toronto Raptors','East','Nov 12, 2018','F','6''9',230,24,2016,2,'2018-2019',2019,'New Mexico State',0.5,206,104,0);
 INSERT INTO players(Player,Team,Conference,Date,Position,Height,Weight,Age,Draft_Year,Seasons_in_league,Season,Season_short,Predraft_Team,Real_value,Height_CM,Weight_KG,Last_Season) VALUES ('C.J. McCollum','Portland Trail Blazers','West','Nov 12, 2018','G','6''3',190,27,2013,5,'2018-2019',2019,'Lehigh',0.5,190,86,0);
 
+--Select all players with height above 6 feet and weight about 210 pounds.
 SELECT player, AVG(height) FROM players WHERE height > 6 AND weight > 210;
 
+--Select all players with height above 7 feet 1 inch and weight about 230 pounds.
 SELECT * FROM players WHERE height > '7''1' AND weight > 230;
 
+--Determine the player with the maximum height.
 SELECT player, MAX(height) FROM players;
 
+--Determine the player with the minimum height.
 SELECT player, MIN(height) FROM players;
 
+--Find the average height based on all players.
 SELECT AVG(height) FROM players;
 
+Categorize players by height.
 SELECT COUNT(*),
 CASE
 WHEN height>'7' THEN "tall"
