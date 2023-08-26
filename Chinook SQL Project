@@ -1,4 +1,7 @@
---Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+I worked with a dataset called chinook, which represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers. 
+Utilized queries to trend global sales, illustrate unique and distinct list of billing countries, invoice volume, sale agent corresponding to customer groupings and top performing sales agents. 
+
+--Show Customers (their full names, customer ID, and country) who are not in the US. 
 SELECT FirstName, LastName, CustomerID, Country
 FROM chinook.customers
 WHERE Country != 'USA';
@@ -8,7 +11,7 @@ SELECT *
 FROM chinook.customers
 WHERE country = 'Brazil';
 
---Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+--Find the Invoices of customers who are from Brazil including customer's full name, Invoice ID, Date of the invoice, and billing country.
 SELECT cust.FirstName, cust.LastName, inv.InvoiceID, inv.InvoiceDate, inv.BillingCountry
 FROM chinook.invoices inv
 LEFT JOIN chinook.customers cust
@@ -24,7 +27,7 @@ WHERE title = 'Sales Support Agent';
 SELECT DISTICT BillingCountry
 FROM chinook.invoices;
 
---Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
+--Provide a query that shows the invoices associated with each sales agent including the Sales Agent's full name.
 SELECT emp.LastName, emp.Firstname, inv.InvoiceId
 FROM chinook.Employees emp 
 JOIN chinook.Customers cust 
