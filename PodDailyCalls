@@ -1,0 +1,18 @@
+/* Here I worked with a dataset called Pod Daily Calls which explored orthopedic daily call volume data sorted by speciality service lines (pods). 
+Using this data, I determined average hold times, abandoned call rates and call volume comparing findings from 2022 to 2023. *\
+
+-- Average hold time by day per pod.
+
+-- Average hold time by month per pod.
+
+-- Percentage of abandoned calls by day per pod.
+
+-- Percentage of abandoned calls by month per pod.
+
+-- Total percentage of abandoned calls by day excluding the main 6400 number.
+
+-- Total percentage of abandoned calls by month excluding the main 6400 number.
+
+-- Average call volume by day per pod.
+
+-- Average call volume by month per pod.
