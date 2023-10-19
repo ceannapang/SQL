@@ -3,6 +3,75 @@ Using this data, I determined average hold times, abandoned call rates and call 
 
 -- Average hold time by day per pod.
 
+/*Upper Extremity & Sports Pod*\
+
+SELECT
+    date,
+    'UE_Sports' AS service_line,
+    SUM(Incoming_Calls) AS Total_Incoming_Calls,
+    SUM(Calls_Taken) AS Total_Calls_Taken,
+    time(                  -- This line calculates the average hold time in HH:MM:SS format
+        AVG(
+            CAST(SUBSTR(Avg_Hold_Time, 1, 2) AS INTEGER) * 3600 +
+            CAST(SUBSTR(Avg_Hold_Time, 4, 2) AS INTEGER) * 60 +
+            CAST(SUBSTR(Avg_Hold_Time, 7, 2) AS INTEGER)
+        ), 'unixepoch'
+    ) AS Avg_Hold_Time_HH_MM_SS,
+    AVG(In_Service_Level) AS Avg_In_Service_Level,
+    SUM(Aban_Calls) AS Total_Aban_Calls
+FROM
+    BIT_DB.poddailycalls
+WHERE
+    service_line IN ("Sports_Med", "Upper_Ext")
+GROUP BY
+    date;
+    
+/*Total Joint & Oncology Pod*\
+
+SELECT
+    date,
+    'TJ_Onc' AS service_line,
+    SUM(Incoming_Calls) AS Total_Incoming_Calls,
+    SUM(Calls_Taken) AS Total_Calls_Taken,
+    time(                  -- This line calculates the average hold time in HH:MM:SS format
+        AVG(
+            CAST(SUBSTR(Avg_Hold_Time, 1, 2) AS INTEGER) * 3600 +
+            CAST(SUBSTR(Avg_Hold_Time, 4, 2) AS INTEGER) * 60 +
+            CAST(SUBSTR(Avg_Hold_Time, 7, 2) AS INTEGER)
+        ), 'unixepoch'
+    ) AS Avg_Hold_Time_HH_MM_SS,
+    AVG(In_Service_Level) AS Avg_In_Service_Level,
+    SUM(Aban_Calls) AS Total_Aban_Calls
+FROM
+    BIT_DB.poddailycalls
+WHERE
+    service_line IN ("Total_Joint", "Oncology")
+GROUP BY
+    date;
+    
+/*Foot and Ankle Trauma Pod*\
+
+SELECT
+    date,
+    'FA_Trauma' AS service_line,
+    SUM(Incoming_Calls) AS Total_Incoming_Calls,
+    SUM(Calls_Taken) AS Total_Calls_Taken,
+    time(                  -- This line calculates the average hold time in HH:MM:SS format
+        AVG(
+            CAST(SUBSTR(Avg_Hold_Time, 1, 2) AS INTEGER) * 3600 +
+            CAST(SUBSTR(Avg_Hold_Time, 4, 2) AS INTEGER) * 60 +
+            CAST(SUBSTR(Avg_Hold_Time, 7, 2) AS INTEGER)
+        ), 'unixepoch'
+    ) AS Avg_Hold_Time_HH_MM_SS,
+    AVG(In_Service_Level) AS Avg_In_Service_Level,
+    SUM(Aban_Calls) AS Total_Aban_Calls
+FROM
+    BIT_DB.poddailycalls
+WHERE
+    service_line IN ("Foot_Ankle", "Trauma")
+GROUP BY
+    date;
+
 -- Average hold time by month per pod.
 
 -- Percentage of abandoned calls by day per pod.
