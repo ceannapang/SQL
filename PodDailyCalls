@@ -1,4 +1,5 @@
-/* Here I worked with a dataset called Pod Daily Calls which explored orthopedic daily call volume data sorted by speciality service lines (pods). 
+/* Here I worked with a dataset called Pod Daily Calls which explored orthopedic daily call volume data sorted by pods (two speciality service lines combined). 
+There are three pods; Upper Extremity & Sports, Total Joint & Oncology and Foot/Ankle & Trauma.
 Using this data, I determined average hold times, abandoned call rates and call volume comparing findings from 2022 to 2023. *\
 
 --Total incoming calls, taken calls, abandoned calls by day per pod. Average hold time and percentage within service level by day per pod.
