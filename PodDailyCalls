@@ -21,9 +21,9 @@ SELECT
     AVG(In_Service_Level) AS Avg_In_Service_Level,
     SUM(Aban_Calls) AS Total_Aban_Calls
 FROM
-    BIT_DB.poddailycalls
+    pod_data
 WHERE
-    service_line IN ("Sports_Med", "Upper_Ext")
+    service_line IN ("Sport_Med", "Upper_Ext")
 GROUP BY
     date;
     
@@ -44,7 +44,7 @@ SELECT
     AVG(In_Service_Level) AS Avg_In_Service_Level,
     SUM(Aban_Calls) AS Total_Aban_Calls
 FROM
-    BIT_DB.poddailycalls
+    pod_data
 WHERE
     service_line IN ("Total_Joint", "Oncology")
 GROUP BY
@@ -67,7 +67,7 @@ SELECT
     AVG(In_Service_Level) AS Avg_In_Service_Level,
     SUM(Aban_Calls) AS Total_Aban_Calls
 FROM
-    BIT_DB.poddailycalls
+    pod_data
 WHERE
     service_line IN ("Foot_Ankle", "Trauma")
 GROUP BY
@@ -90,9 +90,9 @@ SELECT
     AVG(In_Service_Level) AS Avg_In_Service_Level,
     SUM(Aban_Calls) AS Total_Aban_Calls
 FROM
-    BIT_DB.poddailycalls
+    pod_data
 WHERE
-    service_line IN ("Sports_Med", "Upper_Ext")
+    service_line IN ("Sport_Med", "Upper_Ext")
 GROUP BY
     month; --Group by year and month
     
@@ -113,7 +113,7 @@ SELECT
     AVG(In_Service_Level) AS Avg_In_Service_Level,
     SUM(Aban_Calls) AS Total_Aban_Calls
 FROM
-    BIT_DB.poddailycalls
+    pod_data
 WHERE
     service_line IN ("Total_Joint", "Oncology")
 GROUP BY
@@ -136,7 +136,7 @@ SELECT
     AVG(In_Service_Level) AS Avg_In_Service_Level,
     SUM(Aban_Calls) AS Total_Aban_Calls
 FROM
-    BIT_DB.poddailycalls
+    pod_data
 WHERE
     service_line IN ("Foot_Ankle", "Trauma")
 GROUP BY
